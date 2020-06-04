@@ -1,0 +1,26 @@
+@startuml
+
+
+component [Node.js Server] as server
+component [Client Browser] as client
+component [RabbitMQ] as rabbitmq
+component [Ethereum] as ethereum
+database MongoDB as db
+
+client --> server : 1. Login
+server --> client : 2. Autentikasi, token
+
+client --> server : 3. Request ballot (surat suara)
+server --> client : 8. Response
+
+server --> db : Mendapatkan akun pemilih
+db --> server : Return data pemilih
+
+server --> rabbitmq : 4. Meneruskan request ke message broker
+rabbitmq --> server : 7. Response
+
+rabbitmq --> ethereum : 5. Execute Smart Contract
+ethereum --> rabbitmq : 6. Menunggu dan mendapatkan response
+
+
+@enduml
