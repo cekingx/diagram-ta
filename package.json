@@ -1,0 +1,11 @@
+{
+  "name": "diagram-ta",
+  "version": "1.0.0",
+  "description": "Diagram yang digunakan dalam TA",
+  "main": "index.js",
+  "author": "Dirga Yasa",
+  "license": "MIT",
+  "dependencies": {
+    "node-plantuml": "^0.9.0"
+  }
+}
