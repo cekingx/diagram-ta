@@ -1,0 +1,21 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Voter" as v
+actor "Ballot Regulator" as br
+
+rectangle e-voting {
+    usecase "Vote" as vote
+    usecase "Check final result" as check_final
+    usecase "Set Candidate" as set_candidate
+}
+
+v --> vote
+v --> check_final
+
+br --> check_final
+br --> set_candidate
+
+@enduml
